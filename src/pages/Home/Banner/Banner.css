@@ -1,0 +1,21 @@
+.ed-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 4, 10, 0.753);
+    color: #f1f1f1;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ed-fs-1{
+    font-size: 4rem;
+  }
+  .ed-fs-2{
+    font-size: 3rem;
+  }
