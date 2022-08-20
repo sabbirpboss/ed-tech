@@ -21,7 +21,7 @@ const Footer = () => {
                             <Nav.Link href="#faq">About Us</Nav.Link>
                             <Nav.Link href="#about">Communicate Us</Nav.Link>
                         </Nav>
-                        <Nav style={{color: '#43acff'}}>
+                        <Nav style={{color: '#42c0f8'}}>
                            <ul style={{
                             textDecoration: 'none',
                             listStyle: 'none',
@@ -52,10 +52,10 @@ const Footer = () => {
                     <Navbar.Collapse id="responsive-navbar-nav" className='d-flex justify-content-between align-items-center'>
                         <Nav className="">
                             <Nav.Link href="#home" style={{paddingLeft: '0px'}}>
-                            <p style={{color: '#43acff'}}>Copyright &copy;2022 Ed-Tech All right Reserves</p>
+                            <p style={{color: '#42c0f8'}}>Copyright &copy;2022 Ed-Tech All right Reserves</p>
                             </Nav.Link>
                         </Nav>
-                        <Nav style={{color: '#43acff'}}>
+                        <Nav style={{color: '#42c0f8'}}>
                            <ul style={{
                             listStyle: 'none',
                             display: 'flex',

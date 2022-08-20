@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaVideo } from 'react-icons/fa';
+import { FaVideo, FaDesktop, FaQuestion, FaCode, FaUserFriends, FaSlidersH } from 'react-icons/fa';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
 
@@ -7,14 +7,14 @@ const Services = () => {
 
     return (
         <div className='container'>
-            <div className='text-center'>
+            <div className='text-center mt-5'>
                 <h1>At A Glance-Our Services</h1>
                 <caption className='d-flex justify-content-center align-items-center'>Included in these Courses</caption>
             </div>
             {/*  card services */}
             <CardGroup>
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaVideo style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
                     <Card.Title>12 Module 135+ Videos</Card.Title>
                     <Card.Text>
@@ -23,49 +23,51 @@ The entire course is divided into 12 modules and 135+ videos so that you can lea
                 </Card.Body>
             </Card>                
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaDesktop style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
-                    <Card.Title>12 Module 135+ Videos</Card.Title>
+                    <Card.Title>30 hours of 15GB of recorded content</Card.Title>
                     <Card.Text>
-The entire course is divided into 12 modules and 135+ videos so that you can learn step by step.
+Video size and duration are optimized taking into account time and bandwidth consumption.
                     </Card.Text>
                 </Card.Body>
             </Card>                
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaQuestion style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
-                    <Card.Title>12 Module 135+ Videos</Card.Title>
+                    <Card.Title>120+ quizzes</Card.Title>
                     <Card.Text>
-The entire course is divided into 12 modules and 135+ videos so that you can learn step by step.
+There will be quizzes with explanations and answers at the end of each video so that you can check your progress as you learn.
                     </Card.Text>
                 </Card.Body>
             </Card>                
             </CardGroup>
             <CardGroup>
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaCode style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
-                    <Card.Title>12 Module 135+ Videos</Card.Title>
+                    <Card.Title>10 assignments</Card.Title>
                     <Card.Text>
-The entire course is divided into 12 modules and 135+ videos so that you can learn step by step.
+At the end of each module there will be large assignments that you will do on your own. Solution of each assignment will be given in live session.
                     </Card.Text>
                 </Card.Body>
             </Card>                
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaUserFriends style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
-                    <Card.Title>12 Module 135+ Videos</Card.Title>
+                    <Card.Title>5 live sessions</Card.Title>
                     <Card.Text>
-The entire course is divided into 12 modules and 135+ videos so that you can learn step by step.
+There will be weekly live sessions where we will discuss important topics and answer your questions.
+
                     </Card.Text>
                 </Card.Body>
             </Card>                
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
-                <Card.Header><FaVideo className='fs-1 text-primary' /></Card.Header>
+                <Card.Header><FaSlidersH style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
                     <Card.Title>12 Module 135+ Videos</Card.Title>
                     <Card.Text>
-The entire course is divided into 12 modules and 135+ videos so that you can learn step by step.
+                    10 projects
+We have followed project based learning process throughout the course. In the course we will do 10 projects together.
                     </Card.Text>
                 </Card.Body>
             </Card>                
