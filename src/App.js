@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 
 function App() {
   return (
-   <div>
+    <div style={{backgroundColor: '#0a0f1d'}}>
     <Home />
    </div>
   );

@@ -9,9 +9,9 @@ import { Button } from 'react-bootstrap';
 function Banner() {
   return (
     <Carousel>
-      <Carousel.Item className='position-relative' interval={2000}>
+      <Carousel.Item className='position-relative' interval={5000}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-100"
           src={banner1}
           alt="First slide"
         />
@@ -24,9 +24,9 @@ function Banner() {
         </div>
 
       </Carousel.Item>
-      <Carousel.Item className='position-relative' interval={3000}>
+      <Carousel.Item className='position-relative' interval={5000}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-100"
           src={banner2}
           alt="First slide"
         />
@@ -41,7 +41,7 @@ function Banner() {
       </Carousel.Item>
       <Carousel.Item className='position-relative' interval={3000}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-100"
           src={banner3}
           alt="First slide"
         />
