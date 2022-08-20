@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaVideo, FaDesktop, FaQuestion, FaCode, FaUserFriends, FaSlidersH } from 'react-icons/fa';
+import { FaVideo, FaDesktop, FaQuestion, FaCode, FaUserFriends, FaSlidersH, FaArrowRight } from 'react-icons/fa';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
 
@@ -8,7 +8,7 @@ const Services = () => {
     return (
         <div className='container'>
             <div className='text-center mt-5'>
-                <h1>At A Glance-Our Services</h1>
+                <h1>At A Glance <FaArrowRight style={{color: '#42c0f8', fontSize: '20px'}} /> Our Services</h1>
                 <caption className='d-flex justify-content-center align-items-center'>Included in these Courses</caption>
             </div>
             {/*  card services */}
@@ -25,9 +25,9 @@ The entire course is divided into 12 modules and 135+ videos so that you can lea
             <Card className="text-center my-5" style={{backgroundColor: '#0a0f1d', color: "#f1f1f1"}}>
                 <Card.Header><FaDesktop style={{color: '#42c0f8'}} className='fs-1' /></Card.Header>
                 <Card.Body>
-                    <Card.Title>30 hours of 15GB of recorded content</Card.Title>
+                    <Card.Title>30 hours 15GB recorded content</Card.Title>
                     <Card.Text>
-Video size and duration are optimized taking into account time and bandwidth consumption.
+Video size and duration are optimized taking into account time and bandwidth <br /> consumption.
                     </Card.Text>
                 </Card.Body>
             </Card>                
