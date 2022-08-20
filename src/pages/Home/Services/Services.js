@@ -9,7 +9,7 @@ const Services = () => {
         <div className='container'>
             <div className='text-center mt-5'>
                 <h1>At A Glance <FaArrowRight style={{color: '#42c0f8', fontSize: '20px'}} /> Our Services</h1>
-                <caption className='d-flex justify-content-center align-items-center'>Included in these Courses</caption>
+                <caption className='d-flex justify-content-center align-items-center'>Everything in this course</caption>
             </div>
             {/*  card services */}
             <CardGroup>

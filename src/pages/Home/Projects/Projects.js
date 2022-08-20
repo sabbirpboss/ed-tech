@@ -16,7 +16,7 @@ const Projects = () => {
         <div className='container'>
             <div className='text-center mt-5'>
                 <h1>The projects that will be done in the course</h1>
-                <caption className='d-flex justify-content-center align-items-center'>We will do ten projects together</caption>
+                <caption className='d-flex justify-content-center align-items-center'>We will do nine projects together</caption>
             </div>
             {/* card projects */}
             <CardGroup className="my-3">
