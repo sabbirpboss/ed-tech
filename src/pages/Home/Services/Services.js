@@ -72,7 +72,7 @@ We have followed project based learning process throughout the course. In the co
                 </Card.Body>
             </Card>                
             </CardGroup>
-
+            <hr style={{color: '#42c0f8', marginBottom: '70px'}} />
         </div>
     );
 };
