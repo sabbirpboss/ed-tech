@@ -1,5 +1,4 @@
 import './App.css';
-import { Card } from 'react-bootstrap';
 import Home from './pages/Home/Home';
 
 function App() {
