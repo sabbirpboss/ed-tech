@@ -12,7 +12,6 @@ const Footer = () => {
             </Navbar>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container >
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className='d-flex justify-content-between align-items-center'>
                         <Nav className="">
                             <Nav.Link href="#home" style={{paddingLeft: '0px'}}>Payment Status</Nav.Link>
@@ -48,7 +47,6 @@ const Footer = () => {
             <hr className='container text-white opacity-25' />
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container >
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className='d-flex justify-content-between align-items-center'>
                         <Nav className="">
                             <Nav.Link href="#home" style={{paddingLeft: '0px'}}>
@@ -64,11 +62,11 @@ const Footer = () => {
                             marginLeft: '10px'
                            }}>
                             <li style={{textDecoration: 'none',marginLeft: '10px'
-                           }}><a style={{textDecoration: 'none'}} href="#">Supported Browser</a></li>
+                           }}><a style={{textDecoration: 'none'}} href="#">Support</a></li>
                             <li style={{textDecoration: 'none',marginLeft: '10px'
                            }}><a style={{textDecoration: 'none'}} href="#">Condition</a></li>
                             <li style={{textDecoration: 'none',marginLeft: '10px'
-                           }}><a style={{textDecoration: 'none'}} href="#">Privacy Policy</a></li>
+                           }}><a style={{textDecoration: 'none'}} href="#">Privacy</a></li>
                            </ul>
           </Nav>
                     </Navbar.Collapse>

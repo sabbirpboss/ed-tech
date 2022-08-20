@@ -1,0 +1,13 @@
+.ed-accordion{
+    --bs-accordion-color: #f1f1f1;
+    --bs-accordion-bg: #0a0f1d;
+    --bs-accordion-btn-focus-border-color: #0a0f1d;
+    --bs-accordion-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-color: #026a9f;
+    --bs-accordion-active-bg: #026a9f;
+    --bs-accordion-active-color: #f1f1f1;
+}
+.accordion-button{
+    color: #f1f1f1;
+}
