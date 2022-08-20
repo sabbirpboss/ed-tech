@@ -121,6 +121,7 @@ There will be quizzes with explanations and answers at the end of each video so 
                 </Card.Body>
             </Card>                
             </CardGroup>
+            <hr style={{color: '#42c0f8', marginBottom: '70px'}} />
         </div>
     );
 };
