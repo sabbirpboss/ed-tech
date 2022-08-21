@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
-  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import "./Signup.css";
 import auth from "../../firebase.init";
@@ -12,13 +11,12 @@ const SignUp = () => {
   const [agree, setAgree] = useState(false);
   const [createUserWithEmailAndPassword, user, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [updateProfile] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  let from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    console.log("user", user);
-  }
   const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const handleRegister = async (event) => {
@@ -28,14 +26,13 @@ const SignUp = () => {
     const password = event.target.password.value;
 
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: name });
     navigate("/");
   };
 
   return (
     <div className="w-50 mx-auto my-5 pt-5 pb-5 rounded-3 d-flex justify-content-center align-items-center border border-info border-1">
       <div>
-        <h2 className="mt-3 mb-4 text-center"><span className="text-info">Sign Up</span>
+        <h2 className="mt-3 mb-4 text-center"><span className="text-white">Sign Up</span>
         <caption className="d-flex fw-normal fs-6 justify-content-center border-bottom border-info">Create A New Account for Enrollment</caption>
         </h2>
         <form onSubmit={handleRegister}>
@@ -97,6 +94,7 @@ const SignUp = () => {
             <u>Login</u>
           </Link>
         </p>
+        <p><Link to='/'>Back to Home</Link></p>
       </div>
     </div>
   );

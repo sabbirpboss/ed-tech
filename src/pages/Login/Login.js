@@ -22,7 +22,6 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, userOne, errorOne] = useSignInWithGoogle(auth);
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   if (user || userOne) {
     toast.success("Welcome To Ed-Tech");
@@ -45,20 +44,11 @@ const Login = () => {
     navigate("/register");
   };
 
-  const resetPassword = async () => {
-    const email = emailRef.current.value;
-    if (email) {
-      await sendPasswordResetEmail(email);
-      toast("Sent email");
-    } else {
-      toast("please enter your email address");
-    }
-  };
 
   return (
     <div className="w-50 mx-auto my-5 pt-5 pb-5 rounded-3 d-flex justify-content-center align-items-center border border-info border-1">
       <div>
-      <h2 className="mt-3 mb-4 text-center"><span className="text-info">SignIn / LogIn</span>
+      <h2 className="mt-3 mb-4 text-center"><span className="text-white">LogIn</span>
         <caption className="d-flex fw-normal fs-6 justify-content-center border-bottom border-info">Welcome To Ed-Tech</caption>
         </h2>
         <Form onSubmit={handleSubmit}>
@@ -102,6 +92,7 @@ const Login = () => {
             <u>Create An Account</u>
           </Link>{" "}
         </p>
+        <p><Link to='/'>Back to Home</Link></p>
       </div>
     </div>
   );
