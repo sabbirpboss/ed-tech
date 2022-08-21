@@ -1,0 +1,16 @@
+.input-group input {
+    border: 1px solid #a45ff8;
+  }
+  .form-submit{
+      background-color: #0dcaf0;
+    transition: .3s;
+    cursor: pointer;
+    color: #0a0f1d;
+  }
+  .form-submit:hover{
+    background-color: #0a0f1d;
+    color: #0dcaf0;
+  }
+  .form-link{
+      color: ##a45ff8;
+  }

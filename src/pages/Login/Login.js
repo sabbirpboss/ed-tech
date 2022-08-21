@@ -1,55 +1,110 @@
-import React from 'react';
-import { FaGoogle } from  'react-icons/fa';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useRef } from "react";
+import { Button, Form } from "react-bootstrap";
 import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput
-}
-from 'mdb-react-ui-kit';
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Login.css";
 
-function Login() {
+const Login = () => {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+  let errorElement;
+  const [signInWithEmailAndPassword, user, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, userOne, errorOne] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+
+  if (user || userOne) {
+    toast.success("Welcome To Ed-Tech");
+  }
+
+  if (error || errorOne) {
+    errorElement = <p className="text-danger">{error?.message || errorOne?.message}</p>;
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email, password);
+    navigate("/");
+  };
+
+  const navigateRegister = (event) => {
+    navigate("/register");
+  };
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter your email address");
+    }
+  };
+
   return (
-    <MDBContainer fluid>
-
-      <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-        <MDBCol col='12'>
-
-          <MDBCard className='bg-dark text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
-            <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
-
-              <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-              <p className="text-white-50 mb-5">Please enter your login and password!</p>
-
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' type='email' size="lg" placeholder='Email' />
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' type='password' size="lg" placeholder='Password' />
-
-              <Button className='btn btn-success mx-2 px-5'>
-                Login
-              </Button>
-
-              <div className='d-flex justify-content-center align-items-center mt-3'>
-                <Button className='btn btn-dark mx-2 px-5'>
-                <FaGoogle />oogle
-              </Button>
-              </div>
-
-              <div>
-                <p className="mb-0">Don't have an account? <Link to='/signup' className="text-white-50 fw-bold">Sign Up</Link></p>
-
-              </div>
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-      </MDBRow>
-
-    </MDBContainer>
+    <div className="w-50 mx-auto my-5 pt-5 pb-5 rounded-3 d-flex justify-content-center align-items-center border border-info border-1">
+      <div>
+      <h2 className="mt-3 mb-4 text-center"><span className="text-info">SignIn / LogIn</span>
+        <caption className="d-flex fw-normal fs-6 justify-content-center border-bottom border-info">Welcome To Ed-Tech</caption>
+        </h2>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3 input-group" controlId="formBasicEmail">
+            <Form.Control
+              ref={emailRef}
+              type="email"
+              placeholder="Your Email"
+              required
+            />
+          </Form.Group>
+          <Form.Group
+            className="mb-3 input-group"
+            controlId="formBasicPassword"
+          >
+            <Form.Control
+              ref={passwordRef}
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </Form.Group>
+          <Button variant="info w-100 mx-auto d-block mb-2" type="submit">
+            Login
+          </Button>
+        </Form>
+        {errorElement}
+        <button
+          className="w-100 btn btn-outline-secondary border text-white rounded p-2 my-4"
+          onClick={() => signInWithGoogle()}
+        >
+          Sign In With Google
+        </button>
+        <p className="text-info text-center">
+          If you are new to Here ? {" "}
+          <Link
+            className="form-link text-decoration-none text-white"
+            to="/signUp"
+            onClick={navigateRegister}
+          >
+            <u>Create An Account</u>
+          </Link>{" "}
+        </p>
+      </div>
+    </div>
   );
-}
+};
 
 export default Login;

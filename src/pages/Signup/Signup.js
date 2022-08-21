@@ -1,77 +1,105 @@
-import React from 'react';
-import './Signup.css';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput
-}
-from 'mdb-react-ui-kit';
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import "./Signup.css";
+import auth from "../../firebase.init";
 
-function Signup() {
+const SignUp = () => {
+  const [agree, setAgree] = useState(false);
+  const [createUserWithEmailAndPassword, user, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile] = useUpdateProfile(auth);
+
+  const navigate = useNavigate();
+
+  if (user) {
+    console.log("user", user);
+  }
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    navigate("/");
+  };
+
   return (
-    <MDBContainer fluid className='p-4 background-radial-gradient overflow-hidden'>
+    <div className="w-50 mx-auto my-5 pt-5 pb-5 rounded-3 d-flex justify-content-center align-items-center border border-info border-1">
+      <div>
+        <h2 className="mt-3 mb-4 text-center"><span className="text-info">Sign Up</span>
+        <caption className="d-flex fw-normal fs-6 justify-content-center border-bottom border-info">Create A New Account for Enrollment</caption>
+        </h2>
+        <form onSubmit={handleRegister}>
+          <div className="input-group">
+            <input
+              className="p-2 mb-3 rounded w-100"
+              placeholder="Your Email"
+              type="email"
+              name="email"
+              id="user-email"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              className="p-2 mb-3 rounded w-100"
+              placeholder="Set Password"
+              type="password"
+              name="password"
+              id="user-password"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              className="mt-1"
+              onClick={() => setAgree(!agree)}
+              type="checkbox"
+              name="terms"
+              id="terms"
+            />
+            <label
+              className={`ps-2 ${agree ? "" : "text-danger"}`}
+              htmlFor="terms"
+            >
+              Accept Ed-Tech Terms and Conditions
+            </label>
+            <input
+              disabled={!agree}
+              className="form-submit w-75 mx-auto p-2 rounded border-0 fs-5 mb-2 mt-3"
+              type="submit"
+              value="Sign Up"
+            />
+          </div>
+          <p style={{ color: "red" }}>{error}</p>
+        </form>
+<div className="text-center d-flex justify-content-center">
+<button
+          className=" btn btn-outline-secondary border text-white rounded p-2 mb-4 mt-0"
+          onClick={() => signInWithGoogle()}
+        >
+          Sign In With Google
+        </button>
+</div>
 
-      <MDBRow>
-
-        <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
-
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{color: 'hsl(218, 81%, 95%)'}}>
-            The best offer <br />
-            <span style={{color: 'hsl(218, 81%, 75%)'}}>for your business</span>
-          </h1>
-
-          <p className='px-3' style={{color: 'hsl(218, 81%, 85%)'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-            quibusdam tempora at cupiditate quis eum maiores libero
-            veritatis? Dicta facilis sint aliquid ipsum atque?
-          </p>
-
-        </MDBCol>
-
-        <MDBCol md='6' className='position-relative'>
-
-          <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
-
-          <MDBCard className='my-5 bg-glass'>
-            <MDBCardBody className='p-5'>
-
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' placeholder='Your Name' id='form1' type='text'/>
-                </MDBCol>
-              </MDBRow>
-
-              <MDBInput wrapperClass='mb-4' placeholder='Email' id='form3' type='email'/>
-              <MDBInput wrapperClass='mb-4' placeholder='Password' id='form4' type='password'/>
-
-     
-           <div className="text-center my-3">
-           <Button className='btn btn-success mx-2 px-5'>
-                SignUp
-              </Button>
-           </div>
-
-              <div className='text-center'>
-                <p className="mb-0">Don't have an account? <Link to='/login' className="text-primary fw-bold">Login</Link></p>
-
-              </div>
-
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-
-      </MDBRow>
-
-    </MDBContainer>
+<p className="text-center text-info">
+          Already Have An Account?{" "}
+          <Link className="form-link text-decoration-none text-white" to="/login">
+            <u>Login</u>
+          </Link>
+        </p>
+      </div>
+    </div>
   );
-}
+};
 
-export default Signup;
+export default SignUp;
