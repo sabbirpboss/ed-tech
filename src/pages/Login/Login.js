@@ -52,7 +52,7 @@ const Login = () => {
         <caption className="d-flex fw-normal fs-6 justify-content-center border-bottom border-info">Welcome To Ed-Tech</caption>
         </h2>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3 input-group" controlId="formBasicEmail">
+                            <Form.Group className="mb-3 input-group"                 controlId="formBasicEmail">
             <Form.Control
               ref={emailRef}
               type="email"
@@ -60,11 +60,11 @@ const Login = () => {
               required
             />
           </Form.Group>
-          <Form.Group
+                                               <Form.Group
             className="mb-3 input-group"
             controlId="formBasicPassword"
           >
-            <Form.Control
+                                                                     <Form.Control
               ref={passwordRef}
               type="password"
               placeholder="Password"

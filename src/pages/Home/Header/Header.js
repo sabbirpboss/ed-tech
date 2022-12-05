@@ -18,7 +18,7 @@ function CollapsibleExample() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Ed-Tech</Navbar.Brand>
+        <Navbar.Brand href="#home" style={{color: '#42c0f8', fontWeight: 'bold', fontFamily: 'serif'}}>Ed-Tech</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="col-6 offset-3">
@@ -36,8 +36,8 @@ function CollapsibleExample() {
             </button></>
               :
               <>
-              <Nav.Link className='w-50 h-50 mt-1 text-center text-bg-secondary rounded-pill text-white'><Link style={{color: '#0a0f1d'}} className='text-decoration-none' to="/login">Log In</Link></Nav.Link>
-              <Nav.Link className='w-50 h-50 mt-1 text-center text-bg-secondary rounded-pill text-white'><Link style={{color: '#0a0f1d'}} className='text-decoration-none' to="/signup">SignUp</Link></Nav.Link>
+              <Nav.Link className='w-50 h-50 mt-1 text-center rounded-pill text-white' style={{background: '#42c0f8', fontSize: '20px'}}><Link style={{color: '#0a0f1d'}} className='text-decoration-none' to="/login">Login</Link></Nav.Link>
+              <Nav.Link className='w-50 h-50 mt-1 ms-1 text-center text-bg-secondary rounded-pill text-white'><Link style={{color: '#0a0f1d'}} className='text-decoration-none' to="/login">SignUp</Link></Nav.Link>
               </>
             }
             
